@@ -1,0 +1,64 @@
+/* landing page */
+.neon-text {
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  letter-spacing: 5px;
+  text-shadow: 0 0 12px black;
+}
+
+/* admin */
+@media (max-width: 911px) {
+  /* Pada mobile, sembunyikan sidebar dan tampilkan navbar */
+  .sidebar {
+      display: none !important;
+  }
+  .navbar {
+      display: block !important;
+  }
+  /* Pastikan konten utama tidak tergeser */
+  .main-content {
+      margin-left: 0 !important;
+  }
+}
+@media (min-width: 912px) {
+  /* Pada desktop, tampilkan sidebar dan sembunyikan navbar */
+  .sidebar {
+      display: block !important;
+  }
+  .navbar {
+      display: none !important;
+  }
+  /* Geser konten utama untuk memberi ruang sidebar */
+  .main-content {
+      padding-left: 10rem; /* Sesuaikan lebar sidebar */
+  }
+}
+/* Sidebar styling */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 250px;
+  padding: 1rem;
+  overflow-y: auto;
+}
+.sidebar .nav-link {
+  color: white;
+}
+.sidebar .nav-link:hover {
+  background-color: white;
+  color: black;
+  border-radius: 0.25rem;
+}
+/* Menu styling */
+.navbar .nav-link {
+  color: white;
+}
+.navbar .nav-link:hover {
+  background-color: white;
+  color: black;
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.5rem;
+}
