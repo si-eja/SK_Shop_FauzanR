@@ -7,56 +7,51 @@
     <link rel="stylesheet" href="{{ asset('Boostrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('fontawesome/fontawesome/css/all.css') }}">
     <link rel="stylesheet" href="{{ asset('aos-master/dist/aos.css') }}">
-    <link rel="stylesheet" href="{{ asset('style.css') }}">
-    <title>Document</title>
+    <link rel="stylesheet" href="{{ asset('admin.css') }}">
+    <title>TokoSK</title>
 </head>
 <body>
-    <!-- Sidebar Menu untuk Desktop -->
-    <div class="sidebar bg bg-primary text-white">
-        <p class="fs-3 fw-bold">Admin menu</p>
-        <nav class="nav flex-column">
-            <a class="nav-link" href="#">Dashboard</a>
-            <a class="nav-link" href="#">Toko</a>
-            <a class="nav-link" href="#">Pengguna</a>
-            <a class="nav-link" href="#">Produk</a>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar (Desktop Only) -->
+      <div class="col-2 d-none d-lg-block sidebar bg-primary text-white">
+        <p class="fs-5 fw-bold text-center mt-3">Admin Menu</p>
+        <nav class="nav flex-column px-3">
+          <a class="nav-link" href="#">Dashboard</a>
+          <a class="nav-link" href="#">Toko</a>
+          <a class="nav-link" href="#">Pengguna</a>
+          <a class="nav-link" href="#">Produk</a>
         </nav>
-        <!-- Tombol Logout di bawah menu -->
-        <div class="logout-btn">
-            <a href="#" class="btn bg-danger fw-bold text-white text-center w-100">Logout</a>
+        <div class="text-center mt-3 mb-3">
+          <a href="#" class="btn btn-danger fw-bold w-100">Logout</a>
         </div>
-    </div>
-    <!-- Navbar untuk Mobile -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-primary text-white">
+      </div>
+      <!-- Navbar (Mobile Only) -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-primary text-white d-lg-none">
         <div class="container-fluid">
-            <p class="fs-3 fw-bold">Admin menu</p>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Dashboard</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Toko</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Pengguna</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Produk</a>
-                    </li>
-                    <!-- Tombol Logout di bawah menu -->
-                    <li class="nav-item logout-btn mb-auto">
-                        <a href="#" class="btn bg-danger fw-bold text-white text-center w-100">Logout</a>
-                    </li>
-                </ul>
-            </div>
+          <span class="fs-5 fw-bold">Admin</span>
+          <button class="navbar-toggler bg bg-success" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Toko</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Pengguna</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Produk</a></li>
+              <li class="nav-item mt-2">
+                <a href="#" class="btn btn-danger fw-bold w-100">Logout</a>
+              </li>
+            </ul>
+          </div>
         </div>
-    </nav>
-    <div class="container main-content">
+      </nav>
+      <!-- Main Content -->
+      <div class="col-12 col-lg-10 main-content py-4">
         @yield('admin')
+      </div>
     </div>
+  </div>
 </body>
 </html>
 <script src="{{ asset('Boostrap/js/bootstrap.bundle.min.js') }}"></script>

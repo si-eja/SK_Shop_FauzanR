@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>TokoSK</title>
     <link rel="stylesheet" href="{{ asset('Boostrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('fontawesome/fontawesome/css/all.css') }}">
     <link rel="stylesheet" href="{{ asset('aos-master/dist/aos.css') }}">
     <link rel="stylesheet" href="{{ asset('style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
     <div class="container-fluid bg bg-primary">
@@ -20,32 +22,32 @@
     </div>
     <nav class="navbar navbar-expand-sm sticky-top">
         <div class="container">
-            <button class="navbar-toggler bg bg-info mb-2" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+            <button class="navbar-toggler bg bg-success mb-2" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse bg bg-primary rounded-2 p-2" id="navmenu">
+            <div class="collapse navbar-collapse bg bg-primary rounded-2 p-2 border border-dark" id="navmenu">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                <a class="btn btn-success" href="#">Masuk</a>
+                <a class="btn btn-success" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Masuk untuk mengakses fitur toko" href="#">Masuk</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link text-white" href="#">Beranda</a>
+                <a class="nav-link" href="#">Beranda</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link text-white" href="#">Toko</a>
+                <a class="nav-link" href="#">Toko</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link text-white" href="#">Produk</a>
+                <a class="nav-link" href="#">Produk</a>
                 </li>
             </ul>
-            <form class="d-flex">
+            <form class="d-flex" id="search">
                 <input class="form-control me-2" type="text" placeholder="cari....">
                 <button class="btn btn-success" type="button">Cari</button>
             </form>
             </div>
         </div>
     </nav>
-    <div style="height: 100vh">
+    <div>
         @yield('content')
     </div>
     <footer class="bg-primary text-light py-4">
@@ -110,4 +112,8 @@
 <script src="{{ asset('aos-master/dist/aos.js') }}"></script>
 <script>
     AOS.init();
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+    });
 </script>
