@@ -49,14 +49,15 @@
                     </div>
                     <form action="" method="get">
                         <label class="fw-bold text-white text-shadow">Username</label>
-                        <input type="text" class="form-control mb-3">
+                        <input type="text" class="form-control mb-2">
+                        <label class="fw-bold text-white text-shadow">kontak</label>
+                        <input type="text" class="form-control mb-2">
                         <label class="fw-bold text-white text-shadow">Password</label>
                         <input type="password" class="form-control mb-2">
-                        <div class="d-flex justify-content-between mb-3">
-                            <a href="#" class="text-white text-decoration-none">Lupa Password?</a>
-                            <a href="/regis" class="text-white text-decoration-none">Daftar Akun</a>
+                        <div class="text-start mb-3">
+                            <a href="/login" class="text-white text-decoration-none">Sudah punya akun? Login disini</a>
                         </div>
-                        <button class="btn btn-light fw-bold w-100 mb-4">Masuk</button>
+                        <button class="btn btn-light fw-bold w-100 mb-4">Daftar</button>
                         <div class="d-flex align-items-center mb-4">
                             <hr class="flex-grow-1 border-white">
                             <span class="px-2 text-white fw-bold">atau</span>

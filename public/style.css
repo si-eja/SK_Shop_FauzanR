@@ -28,3 +28,23 @@
 .text-shadow {
   text-shadow: 0 0 10px black;
 }
+.about-section {
+    position: relative;
+    background: url('/asset/Toko.png') center/cover no-repeat;
+    overflow: hidden;
+}
+
+.about-section::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.55); /* ubah angka untuk gelap/terang */
+}
+
+.about-section * {
+    position: relative; /* supaya teks tidak tertutup overlay */
+    z-index: 2;
+}

@@ -9,12 +9,20 @@
     <link rel="stylesheet" href="{{ asset('fontawesome/fontawesome/css/all.css') }}">
     <link rel="stylesheet" href="{{ asset('aos-master/dist/aos.css') }}">
     <link rel="stylesheet" href="{{ asset('style.css') }}">
+    <style>
+        .header-section {
+    padding: 12px 4px;
+    }
+    .hover-opacity:hover {
+        opacity: 1 !important;
+    }
+    </style>
 </head>
 <body>
     <div class="container-fluid bg bg-primary">
         <div class="row">
             <div class="col text-center p-4">
-                <h4 data-aos="fade-down" class="neon-text">Masuk TokoSK</h4>
+                <h4 data-aos="fade-down" class="neon-text">TokoSK</h4>
             </div>
         </div>
     </div>
@@ -24,7 +32,7 @@
     <footer class="bg-primary text-light py-4">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 mb-4">
+                <div class="col-md-5 mb-4">
                     <h5 class="mb-0">Informasi</h5>
                     <hr>
                     <p class="mb-0 small">
@@ -33,12 +41,12 @@
                         kebutuhan rumah tangga.
                     </p>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-7">
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-5">
                             <h5 class="mb-0">Ikuti kami</h5>
                             <hr>
-                            <div class="row">
+                            <div class="row d-flex justify-content-center">
                                 <div class="col-3">
                                     <a href="#" class="text-light text-decoration-none">
                                         <i class="fab fa-facebook fa-2x"></i>
@@ -61,13 +69,22 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-3">
                             <h5 class="mb-0">Navigasi</h5>
                             <hr>
                             <ul class="list-unstyled justify-content-center gap-3 mb-0">
                                 <li><a href="#" class="text-light text-decoration-none">Toko</a></li>
                                 <li><a href="#" class="text-light text-decoration-none">Produk</a></li>
                             </ul>
+                        </div>
+                        <div class="col-4">
+                            <h5 class="mb-0">Kontak Pusat</h5>
+                            <hr>
+                            <p class="mb-0 small">
+                                Email: <a href="mailto:info@tokosk.com" class="text-light text-decoration-none">info@tokosk.com</a><br>
+                                Telepon: <a href="tel:+6281234567890" class="text-light text-decoration-none">+62 812-3456-7890</a><br>
+                                Alamat: Jl. Raya No. 123, Kota XYZ
+                            </p>
                         </div>
                     </div>
                 </div>

@@ -9,8 +9,6 @@
     <link rel="stylesheet" href="{{ asset('fontawesome/fontawesome/css/all.css') }}">
     <link rel="stylesheet" href="{{ asset('aos-master/dist/aos.css') }}">
     <link rel="stylesheet" href="{{ asset('style.css') }}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
     <div class="container-fluid bg bg-primary">
@@ -28,10 +26,10 @@
             <div class="collapse navbar-collapse bg bg-primary rounded-2 p-2 border border-dark" id="navmenu">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item me-1">
-                <a class="btn btn-light border border-success text-success" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Daftar untuk membuat toko sendiri" href="#">Daftar</a>
-                </li>
-                <li class="nav-item">
-                <a class="btn btn-success" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Masuk untuk mengakses toko anda" href="/login">Masuk</a>
+                    <div class="d-flex">
+                        <a class="btn btn-light border border-success text-success" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Daftar untuk membuat toko sendiri" href="/regis">Daftar</a>
+                        <a class="btn btn-success" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Masuk untuk mengakses toko anda" href="/login">Masuk</a>
+                    </div>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" href="#">Beranda</a>
@@ -56,7 +54,7 @@
     <footer class="bg-primary text-light py-4">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 mb-4">
+                <div class="col-md-5 mb-4">
                     <h5 class="mb-0">Informasi</h5>
                     <hr>
                     <p class="mb-0 small">
@@ -65,12 +63,12 @@
                         kebutuhan rumah tangga.
                     </p>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-7">
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-5">
                             <h5 class="mb-0">Ikuti kami</h5>
                             <hr>
-                            <div class="row">
+                            <div class="row d-flex justify-content-center">
                                 <div class="col-3">
                                     <a href="#" class="text-light text-decoration-none">
                                         <i class="fab fa-facebook fa-2x"></i>
@@ -93,13 +91,22 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-3">
                             <h5 class="mb-0">Navigasi</h5>
                             <hr>
                             <ul class="list-unstyled justify-content-center gap-3 mb-0">
                                 <li><a href="#" class="text-light text-decoration-none">Toko</a></li>
                                 <li><a href="#" class="text-light text-decoration-none">Produk</a></li>
                             </ul>
+                        </div>
+                        <div class="col-4">
+                            <h5 class="mb-0">Kontak Pusat</h5>
+                            <hr>
+                            <p class="mb-0 small">
+                                Email: <a href="mailto:info@tokosk.com" class="text-light text-decoration-none">info@tokosk.com</a><br>
+                                Telepon: <a href="tel:+6281234567890" class="text-light text-decoration-none">+62 812-3456-7890</a><br>
+                                Alamat: Jl. Raya No. 123, Kota XYZ
+                            </p>
                         </div>
                     </div>
                 </div>
