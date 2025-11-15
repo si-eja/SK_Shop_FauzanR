@@ -15,4 +15,7 @@ class PageController extends Controller
     {
         return view('admin.dash');
     }
+    public function login(){
+        return view('login');
+    }
 }

@@ -13,8 +13,18 @@
                 <p>Selamat datang di TokoSK, tempat terbaik untuk membeli berbagai macam produk yang berkualitas</p>
             </div>
             <div class="col-md-8">
-                <div class="rounded shadow" style="height: 300px;">
-
+                <div class="rounded shadow row py-2" style="height: 360px;">
+                    <div class="col-3">
+                        <div class="rounded-1 bg bg-light border border-primary">
+                            <div class="bg bg-success rounded-top-1" style="width: 100%; height: 180px;"></div>
+                            <div class="m-1">
+                                <div class="d-flex justify-content-between">
+                                    <label for="" class="text-black fw-bold">Toko A</label>
+                                    <p><i class=""></i></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
