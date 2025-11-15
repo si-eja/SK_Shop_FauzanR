@@ -7,7 +7,7 @@
                 <!-- Kolom kiri (gambar) -->
                 <div class="col-md-6 position-relative">
                     <!-- Gambar -->
-                    <img src="{{ asset('Pasar.jpg') }}" 
+                    <img src="{{ asset('Pasar.jpg') }}"
                         alt="Pasar"
                         class="img-fluid"
                         style="width: 100%; height: 100%; object-fit: cover;">
@@ -15,9 +15,9 @@
                     <!-- Overlay gelap -->
                     <div style="
                         position: absolute;
-                        top: 0; 
-                        left: 0; 
-                        width: 100%; 
+                        top: 0;
+                        left: 0;
+                        width: 100%;
                         height: 100%;
                         background: rgba(0,0,0,0.45);
                     "></div>
@@ -47,13 +47,16 @@
                             kembali
                         </a>
                     </div>
-                    <form action="" method="get">
-                        <label class="fw-bold text-white text-shadow">Username</label>
-                        <input type="text" class="form-control mb-2">
+                    <form action="{{ route('regPost') }}" method="post">
+                        @csrf
+                        <label class="fw-bold text-white text-shadow">Nama</label>
+                        <input type="text" class="form-control mb-2" name="nama">
+                        <label class="fw-bold text-white text-shadow">Nama Pengguna</label>
+                        <input type="text" class="form-control mb-2" name="username">
                         <label class="fw-bold text-white text-shadow">kontak</label>
-                        <input type="text" class="form-control mb-2">
+                        <input type="text" class="form-control mb-2" name="kontak">
                         <label class="fw-bold text-white text-shadow">Password</label>
-                        <input type="password" class="form-control mb-2">
+                        <input type="password" class="form-control mb-2" name="password">
                         <div class="text-start mb-3">
                             <a href="/login" class="text-white text-decoration-none">Sudah punya akun? Login disini</a>
                         </div>

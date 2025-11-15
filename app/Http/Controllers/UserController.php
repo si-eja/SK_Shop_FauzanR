@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Toko;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -27,5 +29,27 @@ class UserController extends Controller
             }
         }
         return redirect()->back()->with('pesan','login failed');
+    }
+    public function regPost(Request $request){
+        $validate = $request->validate([
+            'nama' => 'required|string',
+            'username' => 'required|string',
+            'password' => 'required|unique:user,password',
+            'kontak' => 'required|string',
+        ]);
+        $user = User::create([
+            'name' => $request->name,
+            'username' => $request->username,
+            'level' => 'member',
+            'password' => bcrypt($request->password),
+        ]);
+        Toko::create([
+            'user_id' => $user->id,
+            'nama_toko' => '-',
+            'alamat' => '-',
+            'deskripsi' => '-',
+            'nomor' => $request->kontak,
+            'gambar' => '-',
+        ]);
     }
 }

@@ -7,4 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 class Produk extends Model
 {
     //
+    public function kategori() {
+        return $this->belongsTo(Kategori::class, 'id_kategori', 'id_kategori');
+    }
+
+    public function toko() {
+        return $this->belongsTo(Toko::class, 'id_toko', 'id_toko');
+    }
+
+    public function gambar() {
+        return $this->hasMany(Gambar::class, 'id_produk', 'id_produk');
+    }
 }
