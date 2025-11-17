@@ -25,12 +25,20 @@
             </button>
             <div class="collapse navbar-collapse bg bg-primary rounded-2 p-2 border border-dark" id="navmenu">
             <ul class="navbar-nav me-auto">
-                <li class="nav-item me-1">
-                    <div class="d-flex">
-                        <a class="btn btn-light border border-success text-success" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Daftar untuk membuat toko sendiri" href="/regis">Daftar</a>
-                        <a class="btn btn-success" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Masuk untuk mengakses toko anda" href="/login">Masuk</a>
-                    </div>
-                </li>
+                @if (Auth::check())
+                    <li class="nav-item me-1">
+                        <div class="d-flex">
+                            <a class="btn btn-info" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Toko anda" href="#">Kelola Toko</a>
+                        </div>
+                    </li>
+                @else    
+                    <li class="nav-item me-1">
+                        <div class="d-flex">
+                            <a class="btn btn-light border border-success text-success" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Daftar untuk membuat toko sendiri" href="/regis">Daftar</a>
+                            <a class="btn btn-success" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Masuk untuk mengakses toko anda" href="/login">Masuk</a>
+                        </div>
+                    </li>
+                @endif
                 <li class="nav-item">
                 <a class="nav-link" href="#">Beranda</a>
                 </li>

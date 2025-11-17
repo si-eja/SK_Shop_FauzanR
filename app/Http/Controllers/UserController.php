@@ -32,24 +32,25 @@ class UserController extends Controller
     }
     public function regPost(Request $request){
         $validate = $request->validate([
-            'nama' => 'required|string',
+            'name' => 'required|string',
             'username' => 'required|string',
-            'password' => 'required|unique:user,password',
-            'kontak' => 'required|string',
+            'password' => 'required',
+            'nomor' => 'required|string',
         ]);
-        $user = User::create([
+        $user = User::Create([
             'name' => $request->name,
             'username' => $request->username,
             'level' => 'member',
             'password' => bcrypt($request->password),
         ]);
-        Toko::create([
+        Toko::Create([
             'user_id' => $user->id,
             'nama_toko' => '-',
             'alamat' => '-',
             'deskripsi' => '-',
-            'nomor' => $request->kontak,
+            'nomor' => $request->nomor,
             'gambar' => '-',
         ]);
+        return redirect()->route('login')->with('success', 'Register success');
     }
 }

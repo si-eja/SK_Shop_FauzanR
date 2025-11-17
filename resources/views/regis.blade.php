@@ -50,11 +50,11 @@
                     <form action="{{ route('regPost') }}" method="post">
                         @csrf
                         <label class="fw-bold text-white text-shadow">Nama</label>
-                        <input type="text" class="form-control mb-2" name="nama">
+                        <input type="text" class="form-control mb-2" name="name">
                         <label class="fw-bold text-white text-shadow">Nama Pengguna</label>
                         <input type="text" class="form-control mb-2" name="username">
                         <label class="fw-bold text-white text-shadow">kontak</label>
-                        <input type="text" class="form-control mb-2" name="kontak">
+                        <input type="text" class="form-control mb-2" name="nomor">
                         <label class="fw-bold text-white text-shadow">Password</label>
                         <input type="password" class="form-control mb-2" name="password">
                         <div class="text-start mb-3">
