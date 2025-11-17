@@ -26,12 +26,20 @@
             <div class="collapse navbar-collapse bg bg-primary rounded-2 p-2 border border-dark" id="navmenu">
             <ul class="navbar-nav me-auto">
                 @if (Auth::check())
-                    <li class="nav-item me-1">
-                        <div class="d-flex">
-                            <a class="btn btn-info" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Toko anda" href="#">Kelola Toko</a>
-                        </div>
-                    </li>
-                @else    
+                    @php
+                        $toko = Auth::user()->toko;
+                        $isKosong = $toko && 
+                                    $toko->nama_toko == '-' && 
+                                    $toko->gambar == '-' && 
+                                    $toko->alamat == '-';
+                    @endphp
+                    <a class="btn border border-primary text-primary bg-light"
+                    href="{{ $isKosong 
+                                ? route('tokoM',Crypt::encrypt($toko->id))
+                                : route('tokoM', Crypt::encrypt($toko->id)) }}">
+                        {{ $isKosong ? 'Buka Toko' : 'Kelola Toko' }}
+                    </a>
+                @else   
                     <li class="nav-item me-1">
                         <div class="d-flex">
                             <a class="btn btn-light border border-success text-success" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Daftar untuk membuat toko sendiri" href="/regis">Daftar</a>
@@ -73,41 +81,43 @@
                 </div>
                 <div class="col-md-7">
                     <div class="row">
-                        <div class="col-5">
-                            <h5 class="mb-0">Ikuti kami</h5>
-                            <hr>
-                            <div class="row d-flex justify-content-center">
-                                <div class="col-3">
-                                    <a href="#" class="text-light text-decoration-none">
-                                        <i class="fab fa-facebook fa-2x"></i>
-                                    </a>
-                                </div>
-                                <div class="col-3">
-                                    <a href="#" class="text-light text-decoration-none">
-                                        <i class="fab fa-twitter fa-2x"></i>
-                                    </a>
-                                </div>
-                                <div class="col-3">
-                                    <a href="#" class="text-light text-decoration-none">
-                                        <i class="fab fa-instagram fa-2x"></i>
-                                    </a>
-                                </div>
-                                <div class="col-3">
-                                    <a href="#" class="text-light text-decoration-none">
-                                        <i class="fab fa-linkedin fa-2x"></i>
-                                    </a>
+                        <div class="col-md-8 row">
+                            <div class="col-7">
+                                <h5 class="mb-0">Ikuti kami</h5>
+                                <hr>
+                                <div class="row d-flex justify-content-center">
+                                    <div class="col-3">
+                                        <a href="#" class="text-light text-decoration-none">
+                                            <i class="fab fa-facebook fa-2x"></i>
+                                        </a>
+                                    </div>
+                                    <div class="col-3">
+                                        <a href="#" class="text-light text-decoration-none">
+                                            <i class="fab fa-twitter fa-2x"></i>
+                                        </a>
+                                    </div>
+                                    <div class="col-3">
+                                        <a href="#" class="text-light text-decoration-none">
+                                            <i class="fab fa-instagram fa-2x"></i>
+                                        </a>
+                                    </div>
+                                    <div class="col-3">
+                                        <a href="#" class="text-light text-decoration-none">
+                                            <i class="fab fa-linkedin fa-2x"></i>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
+                            <div class="col-5">
+                                <h5 class="mb-0">Navigasi</h5>
+                                <hr>
+                                <ul class="list-unstyled justify-content-center gap-3 mb-0">
+                                    <li><a href="#" class="text-light text-decoration-none">Toko</a></li>
+                                    <li><a href="#" class="text-light text-decoration-none">Produk</a></li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="col-3">
-                            <h5 class="mb-0">Navigasi</h5>
-                            <hr>
-                            <ul class="list-unstyled justify-content-center gap-3 mb-0">
-                                <li><a href="#" class="text-light text-decoration-none">Toko</a></li>
-                                <li><a href="#" class="text-light text-decoration-none">Produk</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-4">
+                        <div class="col-md-4">
                             <h5 class="mb-0">Kontak Pusat</h5>
                             <hr>
                             <p class="mb-0 small">

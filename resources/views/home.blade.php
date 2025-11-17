@@ -1,6 +1,6 @@
 @extends('template')
 @section('content')
-{{-- Toko --}}
+{{-- Produk --}}
 <div class="container-fluid">
     <div class="container w-100 py-3">
         <div class="about-section rounded text-center text-light py-4 px-2">
@@ -15,59 +15,71 @@
         </div>
         <div class="rounded bg-light shadow row py-4 mx-0 mt-3">
             <div class="col-md-4">
-                <h2>Rekomendasi Toko</h2>
+                <h2>Produk Terbaru</h2>
                 <p>Selamat datang di TokoSK, tempat terbaik untuk membeli berbagai macam produk yang berkualitas</p>
             </div>
             <div class="col-md-8">
                 <div class="row g-3">
+                    @foreach ($toko as $item)
                     <div class="col-md-4">
                         <div class="card shadow-sm h-100">
-                            <div class="bg-secondary" style="height: 160px;"></div>
+                            <img src="{{ asset($item->gambar) }}" alt="" class="rounded-top">
                             <div class="card-body">
-                                <h5 class="card-title">Toko A</h5>
-                                <p class="card-text mb-1">Pemilik: Budi Santoso</p>
-                                <p class="card-text mb-3">Alamat: Jl. Raya No. 123, Kota XYZ</p>
+                                <h5 class="card-title">{{ $item->nama_toko }}</h5>
+                                <p class="card-text mb-1">Pemilik: {{ $item->user->name }}</p>
+                                <p class="card-text mb-3">Alamat: {{ $item->alamat }}</p>
                                 <a href="#" class="btn btn-primary w-100">Kunjungi Toko</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="card shadow-sm h-100">
-                            <div class="bg-secondary" style="height: 160px;"></div>
-                            <div class="card-body">
-                                <h5 class="card-title">Toko A</h5>
-                                <p class="card-text mb-1">Pemilik: Budi Santoso</p>
-                                <p class="card-text mb-3">Alamat: Jl. Raya No. 123, Kota XYZ</p>
-                                <a href="#" class="btn btn-primary w-100">Kunjungi Toko</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card shadow-sm h-100">
-                            <div class="bg-secondary" style="height: 160px;"></div>
-                            <div class="card-body">
-                                <h5 class="card-title">Toko A</h5>
-                                <p class="card-text mb-1">Pemilik: Budi Santoso</p>
-                                <p class="card-text mb-3">Alamat: Jl. Raya No. 123, Kota XYZ</p>
-                                <a href="#" class="btn btn-primary w-100">Kunjungi Toko</a>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
     </div>
 </div>
 {{-- Kategori --}}
-<div class="container-fluid bg-primary text-light" style="height: 500px;">
+<div class="container-fluid bg-primary" style="height: 500px;">
     <div class="container">
-
+        
     </div>
 </div>
-{{-- Produk --}}
-<div class="container-fluid" style="height: 500px;">
+{{-- Toko --}}
+<div class="container-fluid bg-light py-5">
     <div class="container">
-
+        
+    </div>
+</div>
+<div class="container-fluid bg-primary py-5">
+    <div class="container">
+        <div class="rounded bg-light shadow row py-4 mx-0">
+            <div class="col-md-4">
+                <h2>Toko Populer</h2>
+                <p>Selamat datang di TokoSK, tempat terbaik untuk membeli berbagai macam produk yang berkualitas</p>
+            </div>
+            <div class="col-md-8">
+                <div class="row g-3">
+                    @foreach ($toko as $item)
+                    <div class="col-md-4">
+                        <div class="card shadow-sm h-100">
+                            <img src="{{ asset($item->gambar) }}" alt="" class="rounded-top">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $item->nama_toko }}</h5>
+                                <p class="card-text mb-1">Pemilik: {{ $item->user->name }}</p>
+                                <p class="card-text mb-3">Alamat: {{ $item->alamat }}</p>
+                                <a href="#" class="btn btn-primary w-100">Kunjungi Toko</a>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid bg-light" style="height: 500px;">
+    <div class="container">
+        
     </div>
 </div>
 @endsection

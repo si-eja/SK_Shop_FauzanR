@@ -9,14 +9,6 @@
     <link rel="stylesheet" href="{{ asset('fontawesome/fontawesome/css/all.css') }}">
     <link rel="stylesheet" href="{{ asset('aos-master/dist/aos.css') }}">
     <link rel="stylesheet" href="{{ asset('style.css') }}">
-    <style>
-        .header-section {
-        padding: 12px 4px;
-        }
-        .hover-opacity:hover {
-            opacity: 1 !important;
-        }
-    </style>
 </head>
 <body>
     <div class="container-fluid bg bg-primary">
@@ -26,9 +18,7 @@
             </div>
         </div>
     </div>
-    <div style="height: fit-content;">
-        @yield('login')
-    </div>
+    @yield('toko')
     <footer class="bg-primary text-light py-4">
         <div class="container">
             <div class="row">
@@ -43,41 +33,43 @@
                 </div>
                 <div class="col-md-7">
                     <div class="row">
-                        <div class="col-5">
-                            <h5 class="mb-0">Ikuti kami</h5>
-                            <hr>
-                            <div class="row d-flex justify-content-center">
-                                <div class="col-3">
-                                    <a href="#" class="text-light text-decoration-none">
-                                        <i class="fab fa-facebook fa-2x"></i>
-                                    </a>
-                                </div>
-                                <div class="col-3">
-                                    <a href="#" class="text-light text-decoration-none">
-                                        <i class="fab fa-twitter fa-2x"></i>
-                                    </a>
-                                </div>
-                                <div class="col-3">
-                                    <a href="#" class="text-light text-decoration-none">
-                                        <i class="fab fa-instagram fa-2x"></i>
-                                    </a>
-                                </div>
-                                <div class="col-3">
-                                    <a href="#" class="text-light text-decoration-none">
-                                        <i class="fab fa-linkedin fa-2x"></i>
-                                    </a>
+                        <div class="col-md-8 row">
+                            <div class="col-7">
+                                <h5 class="mb-0">Ikuti kami</h5>
+                                <hr>
+                                <div class="row d-flex justify-content-center">
+                                    <div class="col-3">
+                                        <a href="#" class="text-light text-decoration-none">
+                                            <i class="fab fa-facebook fa-2x"></i>
+                                        </a>
+                                    </div>
+                                    <div class="col-3">
+                                        <a href="#" class="text-light text-decoration-none">
+                                            <i class="fab fa-twitter fa-2x"></i>
+                                        </a>
+                                    </div>
+                                    <div class="col-3">
+                                        <a href="#" class="text-light text-decoration-none">
+                                            <i class="fab fa-instagram fa-2x"></i>
+                                        </a>
+                                    </div>
+                                    <div class="col-3">
+                                        <a href="#" class="text-light text-decoration-none">
+                                            <i class="fab fa-linkedin fa-2x"></i>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
+                            <div class="col-5">
+                                <h5 class="mb-0">Navigasi</h5>
+                                <hr>
+                                <ul class="list-unstyled justify-content-center gap-3 mb-0">
+                                    <li><a href="#" class="text-light text-decoration-none">Toko</a></li>
+                                    <li><a href="#" class="text-light text-decoration-none">Produk</a></li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="col-3">
-                            <h5 class="mb-0">Navigasi</h5>
-                            <hr>
-                            <ul class="list-unstyled justify-content-center gap-3 mb-0">
-                                <li><a href="#" class="text-light text-decoration-none">Toko</a></li>
-                                <li><a href="#" class="text-light text-decoration-none">Produk</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-4">
+                        <div class="col-md-4">
                             <h5 class="mb-0">Kontak Pusat</h5>
                             <hr>
                             <p class="mb-0 small">

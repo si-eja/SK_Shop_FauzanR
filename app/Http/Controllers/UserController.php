@@ -53,4 +53,8 @@ class UserController extends Controller
         ]);
         return redirect()->route('login')->with('success', 'Register success');
     }
+    public function logout(){
+        Auth::logout();
+        return redirect('/');
+    }
 }

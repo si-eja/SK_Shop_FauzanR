@@ -16,10 +16,10 @@ class Toko extends Model
         'gambar',
     ];
     public function user() {
-        return $this->belongsTo(User::class, 'id_user', 'id_user');
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function produk() {
-        return $this->hasMany(Produk::class, 'id_toko', 'id_toko');
+        return $this->hasMany(Produk::class, 'toko_id');
     }
 }
