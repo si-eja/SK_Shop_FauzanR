@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kategori;
+use App\Models\Produk;
 use App\Models\Toko;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Crypt;
 
 class PageController extends Controller
 {
@@ -19,12 +21,21 @@ class PageController extends Controller
                 ->where('alamat','!=','-')
                 ->take(3)->get();
         })->get();
-
+        $data['produk'] = Produk::where(function($q){
+            $q->where('nama_produk','!=','-')
+                ->where('stok','!=',0)
+                ->take(3)->get();
+        })->get();
         return view('home', $data);
     }
     public function admin()
     {
         return view('admin.dash');
+    }
+    public function kategori()
+    {
+        $data['kategori'] = Kategori::all();
+        return view('admin.kategori', $data);
     }
     public function login(){
         return view('login');
@@ -38,11 +49,11 @@ class PageController extends Controller
         $tokoId = Crypt::decrypt($id);
         $data['toko'] = Toko::findOrFail($tokoId);
         $data['produk'] = $data['toko']->produk()->get();
+        $data['kategori'] = Kategori::all();
         return view('member.toko', $data);
     }
     public function back(){
         return redirect()->back();
-
     }
     private function decryptId($id){
         try{

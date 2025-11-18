@@ -20,14 +20,14 @@
             </div>
             <div class="col-md-8">
                 <div class="row g-3">
-                    @foreach ($toko as $item)
+                    @foreach ($produk as $item)
                     <div class="col-md-4">
                         <div class="card shadow-sm h-100">
-                            <img src="{{ asset($item->gambar) }}" alt="" class="rounded-top">
+                            {{-- <img src="{{ asset($item->gambar) }}" alt="" class="rounded-top"> --}}
                             <div class="card-body">
-                                <h5 class="card-title">{{ $item->nama_toko }}</h5>
-                                <p class="card-text mb-1">Pemilik: {{ $item->user->name }}</p>
-                                <p class="card-text mb-3">Alamat: {{ $item->alamat }}</p>
+                                <h5 class="card-title">{{ $item->nama_produk }}</h5>
+                                <p class="card-text mb-1">{{ $item->harga }}</p>
+                                <p class="card-text mb-3">{{ $item->kategori }}</p>
                                 <a href="#" class="btn btn-primary w-100">Kunjungi Toko</a>
                             </div>
                         </div>
@@ -62,7 +62,7 @@
                     @foreach ($toko as $item)
                     <div class="col-md-4">
                         <div class="card shadow-sm h-100">
-                            <img src="{{ asset($item->gambar) }}" alt="" class="rounded-top">
+                            <img src="{{ asset('storage/toko-img/'.$item->gambar) }}" alt="" class="rounded-top object-fit-cover" style="height: 180px">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $item->nama_toko }}</h5>
                                 <p class="card-text mb-1">Pemilik: {{ $item->user->name }}</p>
