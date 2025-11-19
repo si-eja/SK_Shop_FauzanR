@@ -56,6 +56,19 @@
 /* Desktop: modal jadi lebih lebar */
 @media (min-width: 992px) {
   .custom-modal {
-      max-width: 900px;  /* bisa diganti 800-1200px sesuai kebutuhan */
+    max-width: 900px;  /* bisa diganti 800-1200px sesuai kebutuhan */
   }
+}
+.img-wrapper {
+  width: 100%;
+  height: 130px;   /* Atur tinggi sesuai selera */
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.img-fit {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  /* gambar selalu rapi */
+  object-position: center;
 }

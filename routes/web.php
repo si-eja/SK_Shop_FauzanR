@@ -13,15 +13,28 @@ Route::get('/regis', [PageController::class, 'regis']);
 Route::post('/regis/post', [UserController::class, 'regPost'])->name('regPost');
 
 Route::get('/', [PageController::class, 'index'])->name('home');
+Route::get('/back', [PageController::class, 'back'])->name('back');
+
+Route::get('/produk/{id}/wa', [ProdukController::class, 'kirimWA'])->name('produk.wa');
 
 Route::middleware(['member'])->group(function () {
+    //logout member
     Route::get('/logout', [UserController::class, 'logout'])->name('logoutM');
+
+    //akses toko member
     Route::get('/kelola/toko/{id}', [PageController::class, 'tokoM'])->name('tokoM');
+    //update toko member
     Route::post('/kelola/toko/update/{id}', [TokoController::class, 'tkUpdate'])->name('tokoUpdate');
     
-    Route::post('/kelola/toko/tambahproduk', [ProdukController::class, 'store'])->name('ProdukStore');
+    //produk
+    Route::post('/kelola/toko/tambah/produk', [ProdukController::class, 'store'])->name('ProdukStore');
+    //update stok produk
     Route::post('/kelola/toko/produk/updatestok/{id}', [ProdukController::class, 'updateStock'])->name('produk.updateStock');
-    Route::get('/back', [PageController::class, 'back'])->name('back');
+    //edit produk
+    Route::put('/kelola/toko/produk/update/{id}', [ProdukController::class, 'update'])->name('ProdukUpdate');
+    //hapus produk
+    Route::delete('/produk/{id}', [ProdukController::class, 'destroy'])->name('ProdukDestroy');
+
 });
 Route::middleware(['admin'])->group(function () {
     Route::get('/admin', [PageController::class, 'admin'])->name('admin');
@@ -30,4 +43,5 @@ Route::middleware(['admin'])->group(function () {
     Route::post('/admin/kategori', [KategoriController::class, 'index'])->name('katStore');
     Route::get('/kategori/edit/{id}', [KategoriController::class, 'edit'])->name('kategori.edit');
     Route::post('/kategori/update/{id}', [KategoriController::class, 'update'])->name('kategori.update');
+    Route::delete('/kategori/delete/{id}', [KategoriController::class, 'destroy'])->name('KategoriDestroy');
 });

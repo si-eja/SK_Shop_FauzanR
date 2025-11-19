@@ -9,6 +9,15 @@
     <link rel="stylesheet" href="{{ asset('fontawesome/fontawesome/css/all.css') }}">
     <link rel="stylesheet" href="{{ asset('aos-master/dist/aos.css') }}">
     <link rel="stylesheet" href="{{ asset('style.css') }}">
+    <style>
+        #kategoriTabs::-webkit-scrollbar {
+            height: 6px;
+        }
+        #kategoriTabs::-webkit-scrollbar-thumb {
+            background: #d5d5d5;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 <body>
     <div class="container-fluid bg bg-primary">
@@ -143,5 +152,28 @@
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
     var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
     return new bootstrap.Tooltip(tooltipTriggerEl)
+    });
+    document.addEventListener("DOMContentLoaded", () => {
+        const buttons = document.querySelectorAll("#kategoriTabs .nav-link");
+        const produkItems = document.querySelectorAll(".produk-item");
+
+        buttons.forEach(btn => {
+            btn.addEventListener("click", () => {
+
+                // ubah active
+                buttons.forEach(b => b.classList.remove("active"));
+                btn.classList.add("active");
+
+                let kategoriID = btn.getAttribute("data-kategori");
+
+                // Filter
+                produkItems.forEach(item => {
+                    item.style.display =
+                        item.getAttribute("data-kat") === kategoriID
+                            ? ""
+                            : "none";
+                });
+            });
+        });
     });
 </script>

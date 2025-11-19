@@ -36,6 +36,13 @@ class KategoriController extends Controller
 
         return redirect()->route('kategori')->with('success', 'Kategori berhasil diupdate!');
     }
+    public function destroy($id)
+    {
+        $kategori = Kategori::findOrFail($id);
+        $kategori->delete();
+
+        return back()->with('success', 'Kategori berhasil dihapus!');
+    }
     private function decryptId($id){
         try{
             return Crypt::decrypt($id);

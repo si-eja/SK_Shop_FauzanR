@@ -17,15 +17,15 @@ class PageController extends Controller
     {
         $data['toko'] = Toko::with('user')->where(function($q){
             $q->where('nama_toko','!=','-')
-                ->Where('gambar','!=','-')
                 ->where('alamat','!=','-')
                 ->take(3)->get();
         })->get();
-        $data['produk'] = Produk::where(function($q){
-            $q->where('nama_produk','!=','-')
-                ->where('stok','!=',0)
-                ->take(3)->get();
-        })->get();
+        $data['produk'] = Produk::latest()->where('nama_produk', '!=', '-')
+            ->where('stok', '!=', 0)
+            ->take(8)
+            ->get();
+        $data['kategori'] = Kategori::all();
+        $data['prodkat'] = Produk::with('gambar', 'kategori')->get();
         return view('home', $data);
     }
     public function admin()
