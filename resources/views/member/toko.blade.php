@@ -5,6 +5,12 @@
                 $toko->gambar == '-' && 
                 $toko->alamat == '-';
 @endphp
+@if ($isNonaktif)
+    <div class="alert alert-danger text-center fw-bold">
+        Toko Anda sedang <u>dinonaktifkan</u> oleh admin.
+        <br>Anda tidak dapat mengubah data toko atau menambah produk untuk sementara.
+    </div>
+@endif
 <div class="container my-5">
     @if ($isKosong)
         <h3 class="mb-3 text-center ">Anda belum membuka toko</h3>
@@ -44,9 +50,10 @@
         </div>
         <div class="bg bg-light rounded mt-2 border border-primary">
             <button type="button"
-                    class="btn text-primary w-100"
-                    data-bs-toggle="modal"
-                    data-bs-target="#tokoModal">
+                class="btn text-primary w-100"
+                {{ $isNonaktif ? 'disabled' : '' }}
+                data-bs-toggle="{{ $isNonaktif ? '' : 'modal' }}"
+                data-bs-target="{{ $isNonaktif ? '' : '#tokoModal' }}">
                 {{ $isKosong ? 'Buka Toko' : 'Edit Toko' }}
             </button>
         </div>
@@ -105,7 +112,12 @@
                             <input class="form-control me-2" type="text" placeholder="cari....">
                             <button class="btn btn-success" type="button">Cari</button>
                         </form>
-                        <button class="btn btn-light border border-success text-success" data-bs-toggle="modal" data-bs-target="#modalProduk">Tambah Produk</button>
+                        <button class="btn btn-light border border-success text-success"
+                            data-bs-toggle="modal" 
+                            data-bs-target="#modalProduk"
+                            {{ $isNonaktif ? 'disabled' : '' }}>
+                            Tambah Produk
+                        </button>
                     </div>
                 </div>
                 <div class="table-responsive" style="max: 360px; overflow-y: auto;">
@@ -132,18 +144,26 @@
                                         <form action="{{ route('produk.updateStock', Crypt::encrypt($item->id)) }}" method="post" class="d-flex">
                                             @csrf
                                             @method('POST')
-                                            <input type="text" name="stok" value="{{ $item->stok }}" class="form-control" style="width: auto;">
-                                            <input type="submit" value="Ubah stok" class="btn btn-primary btn-sm ms-2">
+                                            <input type="text" name="stok" value="{{ $item->stok }}" class="form-control" {{ $isNonaktif ? 'disabled' : '' }}>
+                                            <input type="submit" value="Ubah stok" class="btn btn-primary btn-sm ms-2" {{ $isNonaktif ? 'disabled' : '' }}>
                                         </form>
                                     </td>
                                     <td>
-                                        <button class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#modalDetailProduk{{ $item->id }}">
+                                        <button class="btn btn-info btn-sm"
+                                            data-bs-toggle="modal" 
+                                            data-bs-target="#modalDetailProduk{{ $item->id }}">
                                             Detail
                                         </button>
-                                        <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEdit{{ $item->id }}">
+                                        <button class="btn btn-warning btn-sm"
+                                            {{ $isNonaktif ? 'disabled' : '' }}
+                                            data-bs-toggle="modal" 
+                                            data-bs-target="#modalEdit{{ $item->id }}">
                                             Edit
                                         </button>
-                                        <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalHapus{{ $item->id }}">
+                                        <button class="btn btn-danger btn-sm"
+                                            {{ $isNonaktif ? 'disabled' : '' }}
+                                            data-bs-toggle="modal" 
+                                            data-bs-target="#modalHapus{{ $item->id }}">
                                             Hapus
                                         </button>
                                     </td>
@@ -249,7 +269,7 @@
                                                 <div class="d-flex flex-wrap gap-2">
                                                     @if(count($item->gambar) > 0)
                                                         @foreach ($item->gambar as $g)
-                                                            <img src="{{ asset('storage/img-prod/' . $g->nama_gambar) }}"
+                                                            <img src="{{ asset('storage/img-prod/'.$g->nama_gambar) }}"
                                                                 style="width:150px; height:150px; object-fit:cover; border-radius:10px;"
                                                                 class="border">
                                                         @endforeach
@@ -341,7 +361,7 @@
                                     </div>
                                     <div class="d-flex gap-2 flex-wrap" id="preview-container">
                                         @for ($i = 0; $i < 5; $i++)
-                                        <div class="preview-box rounded bg-info d-flex align-items-center justify-content-center text-white fw-bold"
+                                        <div class="preview-box rounded bg-info d-flex align-items-center justify-content-center text-white fw-bold img-fit img-wrapper"
                                             style="height: 120px; width: 120px;">
                                             <span>+</span>
                                         </div>
@@ -350,9 +370,6 @@
                                 </div>
                                 <input type="file" name="gambar_produk[]" class="form-control mt-2" id="gambar_produk" multiple accept="image/*">
                                 @error('gambar_produk')
-                                    <small class="text-danger">{{ $message }}</small>
-                                @enderror
-                                @error('gambar_produk.*')
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror
                             </div>

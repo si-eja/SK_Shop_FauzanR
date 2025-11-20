@@ -45,21 +45,26 @@
             vertical-align: middle;
             padding: 10px;
         }
-
-        /* ======== MODAL FIXES ======== */
+        .preview-wrapper {
+            max-width: 100%;
+        }
+        .preview-box {
+            width: 120px;
+            height: 120px;
+            background: #00c8ff;
+            color: white;
+            font-size: 32px;
+        }
         .modal-content {
             border-radius: 10px;
             overflow: hidden;
         }
-
         .modal-header {
             padding: 15px 20px;
         }
-
         .modal-body {
             padding: 20px 25px;
         }
-
         /* Label yang hilang — buat selalu tampil */
         .modal-body label {
             display: block !important;
@@ -68,14 +73,10 @@
             margin-bottom: 6px;
             z-index: 10 !important;
         }
-
-        /* Rapiin input dan textarea */
         .modal-body .form-control {
             border-radius: 8px;
             padding: 10px 12px;
         }
-
-        /* area gambar lama */
         .modal-body .old-images img {
             border: 1px solid #ddd;
             border-radius: 8px;
@@ -83,22 +84,15 @@
             width: 120px;
             height: 120px;
         }
-
-        /* Jika gambar ketutupan elemen lain */
         .modal-body img {
             z-index: 10 !important;
         }
-
-        /* ======== BUTTON ======== */
         .btn {
             border-radius: 8px;
         }
-
         .btn-sm {
             padding: 4px 10px;
         }
-
-        /* ======== GAP FIX ======== */
         .gap-2 {
             gap: 8px !important;
         }
@@ -197,12 +191,10 @@ document.getElementById('gambar_produk').addEventListener('change', function(eve
         event.target.value = ""; // reset input
         return;
     }
-
     // Reset preview
     container.querySelectorAll(".preview-box").forEach(box => {
         box.innerHTML = '<span>+</span>';
     });
-
     // Tampilkan gambar
     Array.from(files).forEach((file, index) => {
         if (index > 4) return;

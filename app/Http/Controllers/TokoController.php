@@ -41,6 +41,14 @@ class TokoController extends Controller
 
         return redirect()->back()->with('success', 'Toko di edit');
     }
+    public function changeStatus($id)
+    {
+        $toko = Toko::findOrFail($id);
+
+        $toko->status = $toko->status === 'aktif' ? 'nonaktif' : 'aktif';
+        $toko->save();
+        return back()->with('success', 'Status toko berhasil diubah.');
+    }
     private function decryptId($id){
         try{
             return Crypt::decrypt($id);

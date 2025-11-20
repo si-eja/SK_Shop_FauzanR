@@ -23,7 +23,7 @@
     <div class="container-fluid bg bg-primary">
         <div class="row">
             <div class="col text-center p-4">
-                <h4 data-aos="fade-down" class="neon-text">Selamat Datang di TokoSK</h4>
+                <h4 data-aos="fade-down" class="neon-text">Selamat Datang di TokoSRC</h4>
             </div>
         </div>
     </div>
@@ -57,7 +57,7 @@
                     </li>
                 @endif
                 <li class="nav-item">
-                <a class="nav-link" href="#">Beranda</a>
+                <a class="nav-link" href="{{ route('home') }}">Beranda</a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" href="#">Toko</a>

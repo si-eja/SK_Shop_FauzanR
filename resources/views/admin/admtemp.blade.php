@@ -19,7 +19,7 @@
         <nav class="nav flex-column px-3">
           <a class="nav-link" href="{{ route('admin') }}">Dashboard</a>
           <a class="nav-link" href="#">Pengguna</a>
-          <a class="nav-link" href="#">Toko</a>
+          <a class="nav-link" href="{{ route('tokoA') }}">Toko</a>
           <a class="nav-link" href="{{ route('kategori') }}">Kategori</a>
           <a class="nav-link" href="#">Produk</a>
         </nav>

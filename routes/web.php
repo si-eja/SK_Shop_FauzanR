@@ -15,6 +15,8 @@ Route::post('/regis/post', [UserController::class, 'regPost'])->name('regPost');
 Route::get('/', [PageController::class, 'index'])->name('home');
 Route::get('/back', [PageController::class, 'back'])->name('back');
 
+Route::get('/kunjungi/toko/{id}', [PageController::class, 'ktoko'])->name('TokoK');
+
 Route::get('/produk/{id}/wa', [ProdukController::class, 'kirimWA'])->name('produk.wa');
 
 Route::middleware(['member'])->group(function () {
@@ -39,6 +41,12 @@ Route::middleware(['member'])->group(function () {
 Route::middleware(['admin'])->group(function () {
     Route::get('/admin', [PageController::class, 'admin'])->name('admin');
     Route::get('/logout/admin', [UserController::class, 'logout'])->name('logoutA');
+
+    // akses toko admin
+    Route::get('/admin/toko/', [PageController::class, 'tokoA'])->name('tokoA');
+    Route::post('/admin/toko/{id}/status', [TokoController::class, 'changeStatus'])->name('TokoStatus');
+
+    // akses kategori admin
     Route::get('/admin/kategori', [PageController::class, 'kategori'])->name('kategori');
     Route::post('/admin/kategori', [KategoriController::class, 'index'])->name('katStore');
     Route::get('/kategori/edit/{id}', [KategoriController::class, 'edit'])->name('kategori.edit');

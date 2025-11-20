@@ -25,7 +25,9 @@ class PageController extends Controller
             ->take(8)
             ->get();
         $data['kategori'] = Kategori::all();
-        $data['prodkat'] = Produk::with('gambar', 'kategori')->get();
+        $data['prodkat'] = Produk::with('gambar', 'kategori')
+            ->where('stok', '!=', 0)
+            ->get();
         return view('home', $data);
     }
     public function admin()
@@ -48,9 +50,14 @@ class PageController extends Controller
     {
         $tokoId = Crypt::decrypt($id);
         $data['toko'] = Toko::findOrFail($tokoId);
+        $data['isNonaktif'] = $data['toko']->status === 'nonaktif';
         $data['produk'] = $data['toko']->produk()->get();
         $data['kategori'] = Kategori::all();
         return view('member.toko', $data);
+    }
+    public function tokoA(){
+        $data['tokos'] = Toko::all();
+        return view('admin.toko', $data);
     }
     public function back(){
         return redirect()->back();
@@ -61,5 +68,14 @@ class PageController extends Controller
         }catch(DecryptException $e){
             abort(404);
         }
+    }
+    public function ktoko(string $id){
+        $id = $this->decryptId($id);
+
+        $data['toko'] = Toko::findOrFail($id);
+        $data['tokos'] = Toko::where('id', '!=', $id)->limit(4)->get();
+        $data['tokok'] = Toko::with('produk.kategori')->findOrFail($id);
+        $data['katToko'] = Kategori::whereIn('id', $data['toko']->produk->pluck('kategori_id')->unique())->get();
+        return view('ktoko', $data);
     }
 }

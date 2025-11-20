@@ -22,7 +22,7 @@
     <div class="container-fluid bg bg-primary">
         <div class="row">
             <div class="col text-center p-4">
-                <h4 data-aos="fade-down" class="neon-text">TokoSK</h4>
+                <h4 data-aos="fade-down" class="neon-text">TokoSRC</h4>
             </div>
         </div>
     </div>

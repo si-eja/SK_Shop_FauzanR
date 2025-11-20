@@ -48,11 +48,9 @@
                                     class="btn btn-success w-100">
                                     Pesan via Whatsapp
                                 </a>
-                                <button class="btn btn-light border border-primary text-primary w-50"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#modalDetailHome{{ $item->id }}">
+                                <a href="#" class="btn btn-light border border-primary text-primary">
                                     Detail
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -89,7 +87,6 @@
                 <div class="col-6 col-sm-6 col-md-4 col-lg-3 produk-item"
                     data-kat="{{ $item->kategori_id }}">
                     <div class="card shadow-sm h-100">
-
                         @if ($item->gambar->first())
                         <img src="{{ asset('storage/img-prod/' . $item->gambar->first()->nama_gambar) }}"
                             class="card-img-top"
@@ -99,7 +96,6 @@
                             <h6>Produk belum memiliki gambar</h6>
                         </div>
                         @endif
-
                         <div class="card-body">
                             <h5 class="card-title">{{ $item->nama_produk }}</h5>
                             <p class="card-text mb-1">
@@ -114,11 +110,9 @@
                                     class="btn btn-success w-100">
                                     Pesan via Whatsapp
                                 </a>
-                                <button class="btn btn-light border border-primary text-primary w-50"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#modalDetailHome{{ $item->id }}">
+                                <a href="#" class="btn btn-light border border-primary text-primary">
                                     Detail
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -158,7 +152,7 @@
                                     <h6><i class="fa-solid fa-location-dot"></i> {{ $item->alamat }}</h6>
                                 </div>
                             </div>
-                            <a href="#" class="btn btn-primary w-100 mt-2">Kunjungi Toko</a>
+                            <a href="{{ route('TokoK',Crypt::encrypt($item->id)) }}" class="btn btn-primary w-100 mt-2">Kunjungi Toko</a>
                         </div>
                     </div>
                 </div>

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id')->references('id')->on('users');
             $table->string('nama_toko');
             $table->text('alamat');
+             $table->enum('status', ['aktif', 'nonaktif'])->default('aktif');
             $table->text('deskripsi')->nullable();
             $table->string('nomor',14);
             $table->string('gambar')->nullable();

@@ -32,8 +32,8 @@ class ProdukController extends Controller
         ]);
         if ($request->hasFile('gambar_produk')) {
             foreach ($request->file('gambar_produk') as $file) {
-                $filename = time() . '-' . $request->nama_produk . '.' . $file->getClientOriginalExtension();
-                $file->storeAs('storage/img-prod/', $filename);
+                $filename = time().'-'.uniqid(). '.'.$file->getClientOriginalExtension();
+                $file->storeAs('public/img-prod/', $filename);
 
                 // Simpan ke table gambar_produks
                 Gambar::create([
