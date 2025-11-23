@@ -84,7 +84,7 @@
         <div class="col-md-4 py-1 px-2">
             <div class="bg bg-primary rounded p-1">
                 @foreach ($tokos as $item)
-                <div class="col-md-4">
+                <div class="col-12">
                     <div class="card shadow-sm h-100">
                         <div class="p-2">
                             <div class="row">

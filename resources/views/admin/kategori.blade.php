@@ -3,10 +3,6 @@
     <div class="d-flex justify-content-between row">
         <h3 class="col-md-6 mb-2">Kategori</h3>
         <div class="col-md-6 d-flex gap-4 justify-content-end">
-            <form class="d-flex" id="search">
-                <input class="form-control me-2" type="text" placeholder="cari....">
-                <button class="btn btn-success" type="button">Cari</button>
-            </form>
             <a href="#" class="btn btn-light border-primary text-primary" data-bs-toggle="modal" data-bs-target="#KategoriModal">Tambah kategori</a>
         </div>
     </div>

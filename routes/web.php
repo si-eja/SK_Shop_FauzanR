@@ -13,9 +13,13 @@ Route::get('/regis', [PageController::class, 'regis']);
 Route::post('/regis/post', [UserController::class, 'regPost'])->name('regPost');
 
 Route::get('/', [PageController::class, 'index'])->name('home');
+Route::get('/semua/produk', [PageController::class, 'allProd'])->name('allProduk');
+Route::get('/semua/toko', [PageController::class, 'allToko'])->name('allToko');
 Route::get('/back', [PageController::class, 'back'])->name('back');
+Route::get('/cari', [PageController::class, 'search'])->name('search');
 
 Route::get('/kunjungi/toko/{id}', [PageController::class, 'ktoko'])->name('TokoK');
+Route::get('/kunjungi/produk/{id}', [PageController::class, 'dprod'])->name('ProdukD');
 
 Route::get('/produk/{id}/wa', [ProdukController::class, 'kirimWA'])->name('produk.wa');
 

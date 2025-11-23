@@ -3,10 +3,15 @@
 <div class="d-flex justify-content-between row">
     <h3 class="col-md-6 mb-2">Toko</h3>
     <div class="col-md-6 d-flex gap-4 justify-content-end">
-        <form class="d-flex" id="search">
-            <input class="form-control me-2" type="text" placeholder="cari....">
-            <button class="btn btn-success" type="button">Cari</button>
+        <form class="d-flex" method="GET" action="{{ route('tokoA') }}">
+            <input class="form-control me-2" 
+                type="text" 
+                name="search" 
+                placeholder="cari...."
+                value="{{ request('search') }}">
+            <button class="btn btn-success" type="submit">Cari</button>
         </form>
+
     </div>
 </div>
 @if(session('success'))
@@ -26,7 +31,6 @@
                 <th>Aksi</th>
             </tr>
         </thead>
-
         <tbody>
             @foreach($tokos as $toko)
             <tr>
@@ -45,8 +49,7 @@
                 <td>
                     <form action="{{ route('TokoStatus', $toko->id) }}" method="POST">
                         @csrf
-                        <button class="btn btn-warning btn-sm"
-                                onclick="return confirm('Yakin ingin mengubah status toko ini?')">
+                        <button class="btn btn-warning btn-sm">
                             {{ $toko->status == 'aktif' ? 'Nonaktifkan' : 'Aktifkan' }}
                         </button>
                     </form>

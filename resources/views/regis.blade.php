@@ -50,13 +50,31 @@
                     <form action="{{ route('regPost') }}" method="post">
                         @csrf
                         <label class="fw-bold text-white text-shadow">Nama</label>
-                        <input type="text" class="form-control mb-2" name="name">
+                        <input type="text" class="form-control mb-1" name="name" value="{{ old('name') }}">
+                        @error('name')
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror
+                        <br>
                         <label class="fw-bold text-white text-shadow">Nama Pengguna</label>
-                        <input type="text" class="form-control mb-2" name="username">
+                        <input type="text" class="form-control mb-1" name="username" value="{{ old('username') }}">
+                        @error('username')
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror
+                        <br>
                         <label class="fw-bold text-white text-shadow">kontak</label>
-                        <input type="text" class="form-control mb-2" name="nomor">
+                        <div class="input-group">
+                            <span class="input-group-text">+62</span>
+                            <input type="text" class="form-control" name="nomor" value="{{ old('nomor') }}" placeholder="contoh (81234567890)">
+                        </div>
+                        @error('nomor')
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror
+                        <br>
                         <label class="fw-bold text-white text-shadow">Password</label>
-                        <input type="password" class="form-control mb-2" name="password">
+                        <input type="password" class="form-control mb-1" name="password">
+                        @error('password')
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror
                         <div class="text-start mb-3">
                             <a href="/login" class="text-white text-decoration-none">Sudah punya akun? Login disini</a>
                         </div>

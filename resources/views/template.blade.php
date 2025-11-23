@@ -60,15 +60,15 @@
                 <a class="nav-link" href="{{ route('home') }}">Beranda</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#">Toko</a>
+                <a class="nav-link" href="{{ route('allToko') }}">Toko</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#">Produk</a>
+                <a class="nav-link" href="{{ route('allProduk') }}">Produk</a>
                 </li>
             </ul>
-            <form class="d-flex" id="search">
-                <input class="form-control me-2" type="text" placeholder="cari....">
-                <button class="btn btn-success" type="button">Cari</button>
+            <form class="d-flex" id="search" action="{{ route('search') }}" method="GET">
+                <input class="form-control me-2" type="text" name="q" placeholder="cari....">
+                <button class="btn btn-success" type="submit">Cari</button>
             </form>
             </div>
         </div>

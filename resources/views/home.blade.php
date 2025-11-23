@@ -48,7 +48,7 @@
                                     class="btn btn-success w-100">
                                     Pesan via Whatsapp
                                 </a>
-                                <a href="#" class="btn btn-light border border-primary text-primary">
+                                <a href="{{ route('ProdukD',Crypt::encrypt($item->id)) }}" class="btn btn-light border border-primary text-primary">
                                     Detail
                                 </a>
                             </div>
@@ -110,7 +110,7 @@
                                     class="btn btn-success w-100">
                                     Pesan via Whatsapp
                                 </a>
-                                <a href="#" class="btn btn-light border border-primary text-primary">
+                                <a href="{{ route('ProdukD',Crypt::encrypt($item->id)) }}" class="btn btn-light border border-primary text-primary">
                                     Detail
                                 </a>
                             </div>

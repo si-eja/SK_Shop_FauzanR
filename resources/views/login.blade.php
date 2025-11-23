@@ -49,10 +49,24 @@
                     </div>
                     <form action="{{ route('authLogin') }}" method="post">
                         @csrf
+                        {{-- Username --}}
                         <label class="fw-bold text-white text-shadow">Username</label>
-                        <input type="text" class="form-control mb-3" name="username">
+                        <input type="text" class="form-control mb-1" name="username" value="{{ old('username') }}">
+                        @error('username')
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror
+                        <br>
+                        {{-- Password --}}
                         <label class="fw-bold text-white text-shadow">Password</label>
-                        <input type="password" class="form-control mb-2" name="password">
+                        <input type="password" class="form-control mb-1" name="password">
+                        @error('password')
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror
+                        <br>
+                        {{-- Jika password / user salah --}}
+                        @if (session('pesan'))
+                            <small class="text-danger">{{ session('pesan') }}</small>
+                        @endif
                         <div class="d-flex justify-content-between mb-3">
                             <a href="#" class="text-white text-decoration-none">Lupa Password?</a>
                             <a href="/regis" class="text-white text-decoration-none">Daftar Akun</a>

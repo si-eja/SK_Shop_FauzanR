@@ -120,7 +120,7 @@
                         </button>
                     </div>
                 </div>
-                <div class="table-responsive" style="max: 360px; overflow-y: auto;">
+                <div class="table-responsive" style="height: 360px; overflow-y: auto;">
                     <div class="table-wrapper">
                         <table class="table table-hover mt-2 align-middle">
                             <thead>

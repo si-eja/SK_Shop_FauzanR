@@ -33,10 +33,34 @@ class UserController extends Controller
     public function regPost(Request $request){
         $validate = $request->validate([
             'name' => 'required|string',
-            'username' => 'required|string',
+            'username' => 'required|string|unique:users,username',
             'password' => 'required',
-            'nomor' => 'required|string',
+            'nomor' => 'required|string|unique:tokos,nomor|min:11|max:14|regex:/^[0-9]+$/',
+        ],[
+            'name.required' => 'Nama wajib diisi.',
+            'username.required' => 'Nama pengguna wajib diisi.',
+            'username.unique' => 'Nama pengguna sudah digunakan.',
+            'password.required' => 'Password wajib diisi.',
+            'nomor.required' => 'Nomor kontak wajib diisi.',
+            'nomor.unique' => 'Nomor kontak sudah terdaftar.',
+            'nomor.min' => 'Nomor minimal 11 digit.',
+            'nomor.max' => 'Nomor maksimal 14 digit.',
+            'nomor.regex' => 'Nomor hanya boleh berisi angka.',
         ]);
+        // ====== SANITASI NOMOR → WAJIB DITARUH DI SINI ======
+        $nomor = $request->nomor;
+        $nomor = str_replace(' ', '', $nomor); //menghilangkan spasi
+        $nomor = ltrim($nomor, '+'); //manghapus +jika user melakukan input +62
+        if (strpos($nomor, '62') === 0) {
+            $nomor = $nomor;
+        }
+        else if (strpos($nomor, '0') === 0) {
+            $nomor = '62' . substr($nomor, 1);
+        }
+        else {
+            $nomor = '62' . $nomor;
+        }
+        
         $user = User::Create([
             'name' => $request->name,
             'username' => $request->username,
@@ -48,7 +72,7 @@ class UserController extends Controller
             'nama_toko' => '-',
             'alamat' => '-',
             'deskripsi' => '-',
-            'nomor' => $request->nomor,
+            'nomor' => '62'.$nomor,
             'gambar' => '-',
         ]);
         return redirect()->route('login')->with('success', 'Register success');
