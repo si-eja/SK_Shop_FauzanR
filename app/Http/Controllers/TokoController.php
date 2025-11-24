@@ -41,6 +41,36 @@ class TokoController extends Controller
 
         return redirect()->back()->with('success', 'Toko di edit');
     }
+    public function updateNomor(Request $request, $id){
+        $id = $this->decryptId($id);
+        $validate = $request->validate([
+            'nomor' => 'string|unique:tokos,nomor|min:11|max:14|regex:/^[0-9]+$/'
+        ],[
+            'nomor.required' => 'Nomor kontak wajib diisi.',
+            'nomor.unique' => 'Nomor kontak sudah terdaftar.',
+            'nomor.min' => 'Nomor minimal 11 digit.',
+            'nomor.max' => 'Nomor maksimal 14 digit.',
+            'nomor.regex' => 'Nomor hanya boleh berisi angka.',
+        ]);
+        $nomor = $request->nomor;
+        $nomor = str_replace(' ', '', $nomor); //menghilangkan spasi
+        $nomor = ltrim($nomor, '+'); //manghapus +jika user melakukan input +62
+        if (strpos($nomor, '62') === 0) {
+            $nomor = $nomor;
+        }
+        else if (strpos($nomor, '0') === 0) {
+            $nomor = '62' . substr($nomor, 1);
+        }
+        else {
+            $nomor = '62' . $nomor;
+        }
+        $toko = Toko::findOrFail($id);
+        $toko->update([
+            'nomor' => $nomor
+        ]);
+
+        return redirect()->back()->with('success','Ubah nomor selesai');
+    }
     public function changeStatus($id)
     {
         $toko = Toko::findOrFail($id);

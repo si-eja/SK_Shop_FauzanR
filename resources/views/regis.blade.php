@@ -50,7 +50,7 @@
                     <form action="{{ route('regPost') }}" method="post">
                         @csrf
                         <label class="fw-bold text-white text-shadow">Nama</label>
-                        <input type="text" class="form-control mb-1" name="name" value="{{ old('name') }}">
+                        <input type="text" class="form-control mb-1" name="name" value="{{ old('name') }}" placeholder="disarankan nama samaran....">
                         @error('name')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
@@ -79,19 +79,6 @@
                             <a href="/login" class="text-white text-decoration-none">Sudah punya akun? Login disini</a>
                         </div>
                         <button class="btn btn-light fw-bold w-100 mb-4">Daftar</button>
-                        <div class="d-flex align-items-center mb-4">
-                            <hr class="flex-grow-1 border-white">
-                            <span class="px-2 text-white fw-bold">atau</span>
-                            <hr class="flex-grow-1 border-white">
-                        </div>
-                        <button type="button" class="btn btn-light w-100 mb-3 d-flex align-items-center justify-content-center gap-2">
-                            <i class="fab fa-google fa-lg"></i>
-                            <span class="fw-bold">Login dengan Google</span>
-                        </button>
-                        <button type="button" class="btn btn-dark w-100 d-flex align-items-center justify-content-center gap-2">
-                            <i class="fab fa-apple fa-lg"></i>
-                            <span class="fw-bold">Login dengan Apple</span>
-                        </button>
                     </form>
                 </div>
             </div>

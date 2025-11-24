@@ -11,13 +11,11 @@
                 value="{{ request('search') }}">
             <button class="btn btn-success" type="submit">Cari</button>
         </form>
-
     </div>
 </div>
 @if(session('success'))
     <div class="alert alert-success">{{ session('success') }}</div>
 @endif
-
 <div class="table-responsive mt-2">
     <table class="table table-hover table-striped">
         <thead class="table-info">

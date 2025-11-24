@@ -20,7 +20,7 @@
           <a class="nav-link" href="{{ route('admin') }}">Dashboard</a>
           <a class="nav-link" href="{{ route('tokoA') }}">Toko</a>
           <a class="nav-link" href="{{ route('kategori') }}">Kategori</a>
-          <a class="nav-link" href="#">Produk</a>
+          <a class="nav-link" href="{{ route('produkA') }}">Produk</a>
         </nav>
         <div class="text-center mt-3 mb-3">
           <a href="{{ route('logoutA') }}" class="btn btn-danger fw-bold w-100">Logout</a>
@@ -36,10 +36,9 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item"><a class="nav-link" href="{{ route('admin') }}">Dashboard</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">Pengguna</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">Toko</a></li>
+              <li class="nav-item"><a class="nav-link" href="{{ route('tokoA') }}">Toko</a></li>
               <li class="nav-item"><a class="nav-link" href="{{ route('kategori') }}">Kategori</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">Produk</a></li>
+              <li class="nav-item"><a class="nav-link" href="{{ route('produkA') }}">Produk</a></li>
               <li class="nav-item mt-2">
                 <a href="{{ route('logoutA') }}" class="btn btn-danger fw-bold w-100">Logout</a>
               </li>

@@ -31,6 +31,7 @@ Route::middleware(['member'])->group(function () {
     Route::get('/kelola/toko/{id}', [PageController::class, 'tokoM'])->name('tokoM');
     //update toko member
     Route::post('/kelola/toko/update/{id}', [TokoController::class, 'tkUpdate'])->name('tokoUpdate');
+    Route::post('/kelola/nomor/update/{id}', [TokoController::class, 'updateNomor'])->name('nomorUpdate');
     
     //produk
     Route::post('/kelola/toko/tambah/produk', [ProdukController::class, 'store'])->name('ProdukStore');
@@ -56,4 +57,7 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/kategori/edit/{id}', [KategoriController::class, 'edit'])->name('kategori.edit');
     Route::post('/kategori/update/{id}', [KategoriController::class, 'update'])->name('kategori.update');
     Route::delete('/kategori/delete/{id}', [KategoriController::class, 'destroy'])->name('KategoriDestroy');
+
+    // menampilkan data produk
+    Route::get('/admin/produk',[PageController::class, 'produkA'])->name('produkA');
 });

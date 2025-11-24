@@ -19,7 +19,7 @@
                     <h2>Produk Terbaru</h2>
                     <p>Selamat datang di TokoSK, tempat terbaik untuk membeli berbagai macam produk yang berkualitas</p>
                 </div>
-                <a href="#" class="btn btn-light border border-primary text-primary mb-5">Produk lainnya</a>
+                <a href="{{ route('allProduk') }}" class="btn btn-light border border-primary text-primary mb-5">Produk lainnya</a>
             </div>
             <div class="row g-3">
                 @foreach ($produk as $item)
@@ -131,7 +131,7 @@
                     <h2>Toko Populer</h2>
                     <p>Selamat datang di TokoSK, tempat terbaik untuk membeli berbagai macam produk yang berkualitas</p>
                 </div>
-                <a href="#" class="btn btn-light border border-primary text-primary mb-5">Toko lainnya</a>
+                <a href="{{ route('allToko') }}" class="btn btn-light border border-primary text-primary mb-5">Toko lainnya</a>
             </div>
             <div class="row">
                 @foreach ($toko as $item)

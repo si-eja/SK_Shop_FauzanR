@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Kategori;
 use App\Models\Produk;
 use App\Models\Toko;
+use App\Models\User;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Http\Request;
@@ -60,7 +61,7 @@ class PageController extends Controller
         ->where('nama_toko','!=','-')
         ->where('alamat','!=','-')
         ->take(3)->get();
-        $data['aToko'] = Toko::with('user')
+        $data['aToko'] = Toko::latest()->with('user')
         ->where('status', 'aktif')
         ->where('nama_toko','!=','-')
         ->where('alamat','!=','-')
@@ -85,12 +86,19 @@ class PageController extends Controller
     }
     public function admin()
     {
-        return view('admin.dash');
+        $data['user'] = User::where('level', 'member')->get();
+        $data['produk'] = Produk::all();
+        $data['toko'] = Toko::all();
+        $data['kategori'] = Kategori::all();
+        return view('admin.dash', $data);
     }
-    public function kategori()
-    {
+    public function kategori(){
         $data['kategori'] = Kategori::all();
         return view('admin.kategori', $data);
+    }
+    public function produkA(){
+        $data['produk'] = Produk::all();
+        return view('admin.produk',$data);
     }
     public function login(){
         return view('login');
@@ -104,8 +112,22 @@ class PageController extends Controller
         $tokoId = Crypt::decrypt($id);
         $data['toko'] = Toko::findOrFail($tokoId);
         $data['isNonaktif'] = $data['toko']->status === 'nonaktif';
-        $data['produk'] = $data['toko']->produk()->get();
+        // Ambil input pencarian dari form
+        $keyword = $request->keyword;
+
+        // Jika ada pencarian, filter produk berdasarkan keyword
+        $data['produk'] = $data['toko']->produk()
+        ->when($keyword, function ($query) use ($keyword) {
+            $query->where(function ($q) use ($keyword) {
+                $q->where('nama_produk', 'LIKE', "%{$keyword}%")
+                ->orWhere('harga', 'LIKE', "%{$keyword}%")
+                ->orWhereHas('kategori', function ($q2) use ($keyword) {
+                    $q2->where('nama_kategori', 'LIKE', "%{$keyword}%");
+                });
+            });
+        })->get();
         $data['kategori'] = Kategori::all();
+        $data['keyword'] = $keyword;
         return view('member.toko', $data);
     }
     public function tokoA(Request $request){
