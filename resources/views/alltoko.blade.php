@@ -5,7 +5,7 @@
         <div class="d-flex align-items-center justify-content-between">
             <div class="d-flex flex-column mb-3">
                 <h2>Toko Populer</h2>
-                <p>Selamat datang di TokoSK, tempat terbaik untuk membeli berbagai macam produk yang berkualitas</p>
+                <p>Selamat datang di TokoSRC, tempat terbaik untuk membeli berbagai macam produk yang berkualitas</p>
             </div>
         </div>
         <div class="row">
@@ -38,7 +38,7 @@
         <div class="d-flex align-items-center justify-content-between">
             <div class="d-flex flex-column mb-3">
                 <h2>Semua Toko</h2>
-                <p>Selamat datang di TokoSK, tempat terbaik untuk membeli berbagai macam produk yang berkualitas</p>
+                <p>Selamat datang di TokoSRC, tempat terbaik untuk membeli berbagai macam produk yang berkualitas</p>
             </div>
         </div>
         <div class="row g-4">

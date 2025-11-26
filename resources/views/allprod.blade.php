@@ -6,7 +6,7 @@
         <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex flex-column mb-0">
                 <h2>Produk Terbaru</h2>
-                <p>Selamat datang di TokoSK, tempat terbaik untuk membeli berbagai macam produk yang berkualitas</p>
+                <p>Selamat datang di TokoSRC, tempat terbaik untuk membeli berbagai macam produk yang berkualitas</p>
             </div>
         </div>
         <div class="row g-3">
@@ -53,7 +53,7 @@
         <div class="d-flex align-items-center justify-content-between">
             <div class="d-flex flex-column mb-3">
                 <h2>Kategori</h2>
-                <p>Selamat datang di TokoSK, tempat terbaik untuk membeli berbagai macam produk yang berkualitas</p>
+                <p>Selamat datang di TokoSRC, tempat terbaik untuk membeli berbagai macam produk yang berkualitas</p>
             </div>
         </div>
         <ul class="nav nav-pills mb-3 gap-2 flex-nowrap w-100"
@@ -113,7 +113,7 @@
         <div class="d-flex align-items-center justify-content-between">
             <div class="d-flex flex-column mb-3">
                 <h2>Semua Produk</h2>
-                <p>Selamat datang di TokoSK, tempat terbaik untuk membeli berbagai macam produk yang berkualitas</p>
+                <p>Selamat datang di TokoSRC, tempat terbaik untuk membeli berbagai macam produk yang berkualitas</p>
             </div>
         </div>
         <div class="row g-3">
