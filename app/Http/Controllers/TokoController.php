@@ -79,6 +79,30 @@ class TokoController extends Controller
         $toko->save();
         return back()->with('success', 'Status toko berhasil diubah.');
     }
+    public function tokoWA($id)
+    {
+        // Ambil produk + relasi ke toko + kategori
+        $toko = Toko::with(['user'])->findOrFail($id);
+
+        // Ambil nomor dari tabel toko
+        $nomor = 6281292772366;  // 👈 otomatis ambil nomor WA toko
+
+        // Format pesan
+        $pesan = "
+    Halo, saya ingin membuka toko:
+    
+    Nama: {$toko->user->name}
+    Nama pengguna: {$toko->user->username}
+    Nomor: {$toko->nomor}
+        ";
+
+        $pesan = urlencode($pesan);
+
+        // Buat URL WhatsApp
+        $waUrl = "https://wa.me/{$nomor}?text={$pesan}";
+
+        return redirect()->away($waUrl);
+    }
     private function decryptId($id){
         try{
             return Crypt::decrypt($id);

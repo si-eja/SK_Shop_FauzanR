@@ -26,7 +26,8 @@ Route::get('/produk/{id}/wa', [ProdukController::class, 'kirimWA'])->name('produ
 Route::middleware(['member'])->group(function () {
     //logout member
     Route::get('/logout', [UserController::class, 'logout'])->name('logoutM');
-
+    Route::get('/toko/{id}/wa', [TokoController::class, 'tokoWA'])->name('tokoAcc');
+    
     //akses toko member
     Route::get('/kelola/toko/{id}', [PageController::class, 'tokoM'])->name('tokoM');
     //update toko member

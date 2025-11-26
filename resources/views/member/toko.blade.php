@@ -8,9 +8,9 @@
 @if ($isNonaktif)
     <div class="alert alert-danger text-center fw-bold">
         Minta persetujuan <u>Admin</u> jika ingin membuka toko.
-        <br>Anda tidak dapat mengubah data toko atau menambah produk.
+        <br>Tunggu beberapa saat...
         <div class="d-flex justify-content-end">
-            <a href="https://wa.me/6281292772366" class="btn btn-danger">kontak admin</a>
+            <a href="{{ route('tokoAcc', $toko->id) }}" class="btn btn-light border border-success text-success">kontak admin</a>
         </div>
     </div>
 @endif
