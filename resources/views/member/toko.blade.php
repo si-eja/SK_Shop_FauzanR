@@ -7,8 +7,11 @@
 @endphp
 @if ($isNonaktif)
     <div class="alert alert-danger text-center fw-bold">
-        Toko Anda sedang <u>dinonaktifkan</u> oleh admin.
-        <br>Anda tidak dapat mengubah data toko atau menambah produk untuk sementara.
+        Minta persetujuan <u>Admin</u> jika ingin membuka toko.
+        <br>Anda tidak dapat mengubah data toko atau menambah produk.
+        <div class="d-flex justify-content-end">
+            <a href="https://wa.me/6281292772366" class="btn btn-danger">kontak admin</a>
+        </div>
     </div>
 @endif
 <div class="container my-5">
@@ -47,6 +50,10 @@
                     <button type="submit" class="btn btn-primary">Simpan Nomor</button>
                 </div>
             </form>
+        </div>
+        <div class="fw-bold">
+            <h4>Deskripsi</h4>
+            <h6>{{ $toko->deskripsi }}</h6>
         </div>
         <div class="bg bg-light rounded mt-2 border border-primary">
             <button type="button"

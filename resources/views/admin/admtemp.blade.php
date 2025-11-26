@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ asset('fontawesome/fontawesome/css/all.css') }}">
     <link rel="stylesheet" href="{{ asset('aos-master/dist/aos.css') }}">
     <link rel="stylesheet" href="{{ asset('admin.css') }}">
-    <title>TokoSK</title>
+    <title>TokoSRC</title>
 </head>
 <body>
   <div class="container-fluid">

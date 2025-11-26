@@ -73,6 +73,7 @@ class UserController extends Controller
             'alamat' => '-',
             'deskripsi' => '-',
             'nomor' => $nomor,
+            'status' => 'nonaktif',
             'gambar' => '-',
         ]);
         return redirect()->route('login')->with('success', 'Register success');

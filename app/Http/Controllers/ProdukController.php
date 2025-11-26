@@ -16,7 +16,7 @@ class ProdukController extends Controller
     {
         $validated = $request->validate([
             'nama_produk' => 'required|string|max:255',
-            'harga' => 'required',
+            'harga' => 'required|numeric',
             'kategori_id' => 'required',
             'deskripsi' => 'required|string',
             'gambar_produk' => 'required',
